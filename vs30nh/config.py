@@ -64,6 +64,9 @@ def cached(name: str, build):
     """Build a DataFrame once and cache it as parquet under ``DATA/cache``."""
     import pandas as pd
     p = CACHE / f"{name}.parquet"
+    legacy = DATA / f"{name}.parquet"          # layout used by the original notebook
+    if not p.exists() and legacy.exists():
+        p = legacy
     if p.exists():
         return pd.read_parquet(p)
     df = build()

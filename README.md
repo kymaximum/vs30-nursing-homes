@@ -43,7 +43,7 @@ vs30nh/        library code, one module per stage
   figures.py   the six paper figures
 scripts/       numbered stages; run_all.py runs them in order
 outputs/       figures and tables (tracked)
-notebooks/     the original notebook the stages were split from
+notebooks/     run_pipeline.ipynb (runs the stages and shows results); v4_vs30.ipynb (original)
 tests/         offline smoke tests
 ```
 
@@ -53,6 +53,11 @@ tests/         offline smoke tests
 pip install -r requirements.txt
 python scripts/run_all.py
 ```
+
+or open `notebooks/run_pipeline.ipynb`, which runs the same stages and displays
+the tables and figures. If you have a `data/` folder from an earlier notebook
+run, copy it to the repository root; its `*.parquet` caches are picked up
+as is and nothing is re-downloaded.
 
 The first run downloads everything it needs (USGS V<sub>S30</sub> compilation,
 3DEP elevation by point query, USGS State Geologic Map Compilation, the
