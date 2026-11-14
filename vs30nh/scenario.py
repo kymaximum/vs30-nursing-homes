@@ -50,8 +50,8 @@ def scenario_differences(fac: pd.DataFrame) -> pd.DataFrame:
         ctx["mag"], ctx["rake"] = R["mag"], R["rake"]
         ctx["rjb"] = rjb
         ctx["vs30"] = np.clip(np.exp(np.nan_to_num(ln_vs30, nan=np.log(360.0))), 90, 1500)
-        out = cmaker.get_mean_stds([ctx])[0]       # [mean, sig, tau, phi]
-        return out[0], out[1]
+        res = cmaker.get_mean_stds([ctx])          # [mean, sig, tau, phi] x gsim x imt x site
+        return res[0][0], res[1][0]
 
     op_ok = np.isfinite(fac["ln_vs30_op"].to_numpy())
     (mean_op, sig_op), (mean_ml, sig_ml) = gmm(fac["ln_vs30_op"].to_numpy()), gmm(fac["ln_vs30_ml"].to_numpy())
