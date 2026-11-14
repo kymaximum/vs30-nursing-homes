@@ -11,7 +11,7 @@
 Push commands (after creating an empty repo on GitHub with no README/license):
 
     cd vs30-nursing-homes
-    git remote add origin git@github.com:<you>/vs30-nursing-homes.git
+    git remote add origin git@github.com:kymaximum/vs30-nursing-homes.git
     git push -u origin main
 9. outputs/ holds only the five figures; the CSV tables (table2_skill, table2b_calibration,
    table2c_ablation, table2d_bay_rmse, table3_stratified, table3a_scenario, table3b_siting) are
